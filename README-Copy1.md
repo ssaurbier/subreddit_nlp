@@ -2,24 +2,6 @@
 
 ### Description
 
-**Problem Statement**
-
-- How can we semantically identify the difference between /r/bitcoin and /r/ethereum? Many casual observers may group them together under the umbrella of 'crpytocurrency,' but the culture, evolution, design, and application of these blockchains are different, and have diverged substantially since 2015. 
-
-A brief history:
-
-Bitcoin was initially launched as a decentralized monetary-policy based token, with the opportunity to act as a "decentralized computer" to transact 
-
-
-
-
-- Is it clear what the goal of the project is?
-- What type of model will be developed?
-- How will success be evaluated?
-- Is the scope of the project appropriate?
-- Is it clear who cares about this or why this is important to investigate?
-- Does the student consider the audience and the primary and secondary stakeholders?
-
 In week four we've learned about a few different classifiers. In week five we learned about webscraping, APIs, and Natural Language Processing (NLP). This project will put those skills to the test.
 
 For project 3, your goal is two-fold:
