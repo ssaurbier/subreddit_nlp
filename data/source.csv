@@ -1,0 +1,144 @@
+,title,num_comments,post_upvotes,id,post_upvote_ratios,datetime,score,text,upvote_ratio,post_author,date,time
+0,Frequently Asked Questions + Weekly Discussion Thread,11,23,101617w,0.94,2023-01-02 07:00:11,26,"**Welcome to the Weekly Discussion. Please read the disclaimer, guidelines, and rules before participating.**
+
+Rules:
+
+* All [sub rules](https://www.reddit.com/r/Ethereum/about/rules/) apply in this thread.
+* Discussion topics must be related to Ethereum.
+* Behave with civility and politeness. Do not use offensive, racist or homophobic language.
+* Comments will be sorted by newest first.
+
+Useful Links:
+
+* [Ethereum.org](https://ethereum.org)
+* [ETHMerge.com](https://ethmerge.com/)
+
+**Reminder**
+
+/r/ethereum is a community for discussing the technology, news, applications and community of Ethereum. **Discussion of the Ether price or trading is not allowed.** Please keep those discussions to [/r/ethfinance](https://www.reddit.com/r/ethfinance) and [/r/ethstaker](https://www.reddit.com/r/ethstaker).
+
+&#x200B;
+
+**Frequently Asked Questions**
+
+**Where's the best place to buy ETH?**
+
+There are many centralized exchanges that support Ethereum. If you live in the US, the most popular exchanges are Coinbase, Gemeni and Kraken. Coinbase users can use Coinbase Pro for lower fees.
+
+**How can I stake my ETH?**
+
+The best way to stake your ETH: by running your own validator.
+
+* Running your own validator requires a modern computer and 32 ETH. Visit /r/ethstaker for more details
+
+**Why are Ethereum transaction fees so high?**
+
+Like most blockchains, Ethereum fees are determined by supply-and-demand. The large demand to use Ethereum has pushed transaction fees quite high (however, fees were just a few cents only 2 years ago). Fees are especially high during market volatility, and during NFT drops.
+
+**What is being done to lower Ethereum transaction fees?**
+
+Ethereum fees are reduced by using layer-2 rollups. Rollups are scaling solutions that allow for significantly cheaper transactions, while still maintaining Ethereum's security.
+
+Additionally, data shards will make rollups even cheaper.
+
+While rollups are cutting-edge technology being actively developed, a number are already live on Ethereum mainnet. Visit [l2beat.com](https://l2beat.com/) to learn more about rollups.
+
+**What's the best wallet for Ethereum?**
+
+The most popular tool for using decentralized applications is Metamask. However, for security reasons, we recommend using a hardware wallet such as a Trezor or Ledger.
+
+&#x200B;
+
+Are there questions you'd like to see added? Leave a comment below.",0.94,AutoModerator,2023-01-02,07:00:11
+1,"Private data of 235,000,000 Twitter users leaked earlier today (read how this can affect you)",55,348,103gwl6,0.94,2023-01-04 22:17:41,348,"The database contains 235,000,000 unique records of Twitter users and their email addresses and will unfortunately lead to a lot of hacking, targeted phishing, and doxxing.
+
+Hackers will use the new leaked Twitter database (Read here [https://twitter.com/RockHudsonRock/status/1610554406805671936](https://twitter.com/RockHudsonRock/status/1610554406805671936)) in order to :  
+1. Target Crypto Twitter accounts (.eth in name or other methods, first picture)  
+2. Hack into high profile accounts (follower count or otherwise)  
+3. Hack into ""OG"" accounts with good usernames  
+4. Hack into political accounts  
+5. Doxx ""anonymous"" accounts that didn't use a dedicated email for Twitter  
+
+
+https://preview.redd.it/w5xvlqwqp3aa1.png?width=1041&format=png&auto=webp&s=9606886d3793c28ee8b657760b830afe0b1a5c53
+
+&#x200B;
+
+https://preview.redd.it/qh2whgjsp3aa1.png?width=995&format=png&auto=webp&s=b8c2087c8352f4087a340ceb62bda2486bf0a483
+
+&#x200B;
+
+https://preview.redd.it/pmhsml2tp3aa1.png?width=880&format=png&auto=webp&s=189d1fd1da2146d48b5a342083956c064d563bf9
+
+It goes without saying that agencies around the world will use this database as well to further harm our privacy.",0.94,Malwarebeasts,2023-01-04,22:17:41
+2,Seedshift - steganographically encrypt your seed words,0,13,103v5od,0.93,2023-01-05 09:53:30,13,"Pertaining to recent events (both the FTX collapse and LastPass hack), self-custody of your crypto and with it safe backup of your mnemonic seed words has never been more warranted I think. I keep my seed words secured in a local KeePass database in a few different places, but [this guy](https://cointelegraph.com/news/lastpass-data-breach-led-to-53k-in-bitcoin-stolen-lawsuit-alleges) kept them on LastPass. I wrote this script a few years ago to be able to securely write them down in an easy human-readable format and not have to worry about it even if a thief/hacker came across them: https://github.com/mifunetoshiro/Seedshift
+
+It steganographically encrypts your English mnemonic seed words using a date shift cipher, and optionally obfuscates them by mapping them to the Unicode characters in the Traditional Chinese BIP-39 wordlist. There is also an option to split the encrypted/obfuscated seed words into 2-out-of-3 recovery sheets.
+
+**Note that you do not need this script to encrypt/decrypt your seed words with a date shift cipher, you can do all of it by hand on a piece of paper. Please read the ""Safe usage"" section on GitHub!**
+
+*Example usage:*
+
+Let's say `oppose duck hello neglect reveal key humor mosquito road evoke flock hedgehog` are your seed words. The script takes dates in YYYY-MM-DD format. So let's say you use 3 dates: your mother's birthday is 1963-07-10, your father's birthday is 1956-04-27, and your birthday is 1994-01-31. The script will automatically sort the dates from oldest to newest (you don't have to input them in that order) and split each in 3 parts (year, month, day) which will be used to right-shift the words' positions in the English BIP-39 wordlist. In the above example: `1956, 4, 27, 1963, 7, 10, 1994, 1, 31`. The script will shift the words and output a table with the shifted words, their number and the Unicode codepoint of the Chinese counterpart character in the Traditional Chinese wordlist (if present):
+
+    | #  | Original | Number | Shifted | Encrypted | Number | Chinese |
+    |----|----------|--------|---------|-----------|--------|---------|
+    | 1  | oppose   | 1245   | 1956    | mosquito  | 1153   | 5BF6    |
+    | 2  | duck     | 543    | 4       | dust      | 547    | 5B57    |
+    | 3  | hello    | 855    | 27      | hotel     | 882    | 6162    |
+    | 4  | neglect  | 1185   | 1963    | maximum   | 1100   | 7238    |
+    | 5  | reveal   | 1476   | 7       | rich      | 1483   | 6C2E    |
+    | 6  | key      | 977    | 10      | kitten    | 987    | 6FC3    |
+    | 7  | humor    | 889    | 1994    | hair      | 835    | 4E4E    |
+    | 8  | mosquito | 1153   | 1       | mother    | 1154   | 5348    |
+    | 9  | road     | 1496   | 31      | salute    | 1527   | 95CA    |
+    | 10 | evoke    | 625    | 1956    | dream     | 533    | 52E2    |
+    | 11 | flock    | 715    | 4       | flush     | 719    | 932F    |
+    | 12 | hedgehog | 853    | 27      | hospital  | 880    | 4E95    |
+
+To decrypt them and get back your original seed words, the script will accept the encrypted words, their numbers or the Unicode codepoints and the same dates you used to encrypt them (again, you can also do all of this by hand and don't need the script at all).
+
+Note that the last encrypted word will most likely not be a valid checksum word (in the above example, `hospital` is valid, though). Having a valid checksum last word can provide plausible deniability in that the encrypted words are in fact encrypted, as they are valid BIP-39 seed words. You could even store a small amount of coins there, so if someone ever steals/uses your seed words, that's all they're going to think you have. The script can generate a valid last checksum word for your encrypted words if you want to replace it (if it's already valid, the script will tell you so, and you don't have to replace it). If you choose to replace it, you will have to remember or write down your original or encrypted last word as well, or you will optionally have to bruteforce/generate all valid checksum words with this script and test them one by one (there are 128, 64, 32 and 8 valid checksum words for 12, 15, 18 and 24 seed words, respectively)!
+
+You can store the Chinese Unicode codepoints in multiple ways, since each is 4 characters long (just remember this fact when you want to rebuild your original seed words). You could write it unchanged: `5BF6 5B57 6162 7238 6C2E 6FC3 4E4E 5348 95CA 52E2 932F 4E95`, or, to make it look even more random, as a bunch of hexadecimal characters that return useless nonsense when converted back to text (*[ö[Wabr8l.oÃNNSHÊRâ/N*), you could write it without spaces: `5BF65B57616272386C2E6FC34E4E534895CA52E2932F4E95`, you could write it with a space every 2 characters: `5B F6 5B 57 61 62 72 38 6C 2E 6F C3 4E 4E 53 48 95 CA 52 E2 93 2F 4E 95`, you could group two or more together: `5BF65B57 61627238 6C2E6FC3 4E4E5348 95CA52E2 932F4E95`, etc. I included ""mapping_table.txt"" and ""mapping_table_unicode_sorted.txt"" files for manually looking up and converting the Unicode codepoints.
+
+
+Optionally, the script can output a 2-out-of-3 recovery sheets like this:
+
+    | Sheet 1                    | Sheet 2                    | Sheet 3                    |
+    |----------------------------|----------------------------|----------------------------|
+    | #1: mosquito / 1153 / 5BF6 | #1: mosquito / 1153 / 5BF6 | #2: dust / 547 / 5B57      |
+    | #2: dust / 547 / 5B57      | #3: hotel / 882 / 6162     | #3: hotel / 882 / 6162     |
+    | #4: maximum / 1100 / 7238  | #4: maximum / 1100 / 7238  | #5: rich / 1483 / 6C2E     |
+    | #5: rich / 1483 / 6C2E     | #6: kitten / 987 / 6FC3    | #6: kitten / 987 / 6FC3    |
+    | #7: hair / 835 / 4E4E      | #7: hair / 835 / 4E4E      | #8: mother / 1154 / 5348   |
+    | #8: mother / 1154 / 5348   | #9: salute / 1527 / 95CA   | #9: salute / 1527 / 95CA   |
+    | #10: dream / 533 / 52E2    | #10: dream / 533 / 52E2    | #11: flush / 719 / 932F    |
+    | #11: flush / 719 / 932F    | #12: hospital / 880 / 4E95 | #12: hospital / 880 / 4E95 |
+
+Write down and store each sheet separately at a different location.",0.93,toshiromiballza,2023-01-05,09:53:30
+3,Are NFT Scammers Just As Creative as the Artists Themselves? A Look Into the Types of Scams In the Market,16,91,103bey7,0.92,2023-01-04 18:46:44,85,,0.92,Sufficient-Bid-5716,2023-01-04,18:46:44
+4,Accidentally transferred Tether to my coinbase wallet using Arbitrum instead of ERC20 from Kucoin. Is there any way of recovering this?,3,3,1040ny2,1.0,2023-01-05 14:46:17,3,I did not notice that coinbase states “only send USDT (ERC20) to this address.” I’m not too familiar with the blockchain but I’ve read stuff about creating a private wallet that can accept erc20 and Arbitrum. I’m not really sure what to do from here.,1.0,YUNGjuulstin,2023-01-05,14:46:17
+5,"🍄 Stereum - Ethereum Node - ""2.0.0-rc.10"" Release 🍄",0,1,10411tm,1.0,2023-01-05 15:02:02,1,,1.0,daGscheid,2023-01-05,15:02:02
+6,Is there some obscure use case scenario where *maybe* you could run a node with an HDD?,9,7,103l3dj,0.7,2023-01-05 01:07:00,8,"I know.. I know...
+
+""it is impossible to sync with an HDD""
+
+&#x200B;
+
+But what if I didn't care about syncing? All I want to do is keep a historical record of the blockchain for my own massive historical querying purposes. I don't care if it lags behind the current chain even a couple of blocks.
+
+&#x200B;
+
+HDD is so much cheaper than SSD, especially if I want a full historical set. 40Tb SSD is going to be ridiculously expensive.",0.7,cathie_burry,2023-01-05,01:07:00
+7,A list of Crypto Friendly Banks,25,94,102yufr,0.82,2023-01-04 09:07:54,92,,0.82,legragrug,2023-01-04,09:07:54
+8,Eth scammer,2,1,103qmsf,0.56,2023-01-05 05:26:29,4,I’ve found a wallet involved in high stake scamming. Is there any program I can use to link them all together. Using etherscanio I just get lost after numerous wallet changes and contracts created but they all link back to the one wallet,0.56,PhilosopherEast6227,2023-01-05,05:26:29
+9,Developing crypto,5,13,103agx5,0.85,2023-01-04 18:10:25,13,"So I hear a lot of talk about: What have you guys done with crypto besides trying to make money.
+
+And I want to ask you guys, shouldn't the crypto community be trying to bridge real world physical things with crypto?
+
+Example maybe a platform to resell old stuff like second hand iphones with eth, or maybe an airbnb style with less cleaning fees.
+
+I try to view this crypto transition like what probably happen in china when they transitioned from gold to paper, people needed to use paper for physical things and services, and so we should build dencentralized services people need so they start transitioning.
+
+What do you guys think good services would bring more people to use crypto if implemented with it",0.85,BlazingJava,2023-01-04,18:10:25
