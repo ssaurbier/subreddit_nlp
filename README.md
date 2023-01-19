@@ -4,63 +4,46 @@
 
 **Problem Statement**
 
-- How can we semantically identify the difference between /r/bitcoin and /r/ethereum? Many casual observers may group them together under the umbrella of 'crpytocurrency,' but the culture, evolution, design, and application of these blockchains are different, and have diverged substantially since 2015. 
+- How can we semantically identify the difference between /r/bitcoin and /r/ethereum, filtering for obvious terms? Many casual observers may these two assets together under the umbrella of 'crpytocurrency,' but the culture, evolution, design, and application of these blockchains are different, and have diverged substantially since 2015. Is it evident in posts on the respective subreddits?
 
 A brief history:
 
-Bitcoin was initially launched as a decentralized monetary-policy based token, with the opportunity to act as a "decentralized computer" to transact 
+Bitcoin was initially launched as a decentralized monetary-policy based token, with the opportunity to act as a "decentralized computer" to transact value itself, or data lying within the the bitcoin blockchain (OP-return). Users quickly became excited about sending an arbitrarily small transaction, with data embedded in OP-return, using bitcoin as a carriage for any referenced dataset stored in OP-return.
+
+Meanwhile, as bitcoin grew in popularity, demand for blockspace began to exceed blockspace supply - blocks became full. In general, any blockchain ecosystem trends toward (but not to) full blocks as arbitrary transactions are affordable until competition for space drives up fee pressure. 
+
+The original whitepaper hardcoded the blocksize as a temporary measure, on which satoshi himself commented:
+
+> It can be phased in, like: if (blocknumber > 115000) maxblocksize = largerlimit It can start being in versions way ahead, so by the time it reaches that block number and goes into effect, the older versions that don’t have it are already obsolete. (https://satoshi.nakamotoinstitute.org/posts/bitcointalk/485/)
+
+At the time, jeff garzik, gavin andresen, and mike hearn were the primary core maintainers, variously had contact with satoshi, and were in favor of conservative growth. but several developers had become prominent contributors - Greg maxwell, peter todd, adam back, and luke dash jr. I encourage any reader to google these latter names - for they are various flavors of psychopaths, except for peter todd, who is just annoying. 
+
+These latter contributors organized themselves behind a VC and private investment to create a startup called "blockstream," the only apparent value prop of which was that it was composed of several key core devs. 
+
+Meanwhile, all bitcoin forums (reddit, bitcointalk, and the bitcoin wiki) were all maintained by a still unknown user named /u/cobra, who is either a sockpuppet account of greg maxwell, or simply sympathetic to their cause, or otherwise motivated.
+
+What emerged was a manufactured constitutional crisis for bitcoin. The blockstream devs appeared to try to monetize their startup by strangling blockspace on Bitcoin, in order to force traffic onto their second layer network, lightning. They also degraded the network with segregated witness to make their lightning product possible, while invalidating the possibility of zero-confirmation transazations. Segwit was sold as a blocksize increase, while it was nothing of the sort - it segregated witness data and then subsidized the cost of these segwit blocks to make them appear larger. 
+
+The blockstream devs pushed out the core devs, and social media was a key instrument in this exercise. Cobra-bitcoin owned (moderated) every major platform for bitcoin users, including reddit. Debate reached theological levels from the blockstreamers, and any "dissenting opinion" counter to the official blockstream platform was banned in cooperation with cobra bitcoin. 
+
+At this point, all the banned and disgusted users left /r/bitcoin to its ivory tower, and started /r/btc. The bigger trend was the shift to ethereum. As bitcoin would never scale, nor adopt smart contracts or turing complete language, ethereum was now the only option. This is the great irony to the blockstream plan to strangle bitcoin traffic for their second layer - traffic simply went around the blockage onto other chains, primarily ethereum. This was a major moment in the growth of eth, as bitcoin essentially shut down in 2017 and now exists as something like a fixed income asset. 
+
+To this day, ~1.5% of all BTC are held and transacted on the ethereum network, and WBTC is almost 40x larger than lightning (~$4B vs. $100m).
+
+At this point, most people don't even know the history, as most users adopted after this constitutional crisis, which took place primarily on reddit. Can we spot the different users?
 
 
+## Process
+
+1. Call  reddit api via pushshift
+2. Parse / clean data
+3. Lemmatize / tokenize data
+4. EDA, identify stopwords
+5. Run models, tune hyperparameters
+6. Review classification performance
+7. All model comparison and review
 
 
-- Is it clear what the goal of the project is?
-- What type of model will be developed?
-- How will success be evaluated?
-- Is the scope of the project appropriate?
-- Is it clear who cares about this or why this is important to investigate?
-- Does the student consider the audience and the primary and secondary stakeholders?
-
-In week four we've learned about a few different classifiers. In week five we learned about webscraping, APIs, and Natural Language Processing (NLP). This project will put those skills to the test.
-
-For project 3, your goal is two-fold:
-1. Using [Pushshift's](https://github.com/pushshift/api) API or [PRAW](https://praw.readthedocs.io/en/stable/), you'll collect posts from two subreddits of your choosing.
-2. You'll then use NLP to train a classifier on which subreddit a given post came from. This is a binary classification problem.
-
-
-### About the PushShift API
-PushShift collects Reddit data, stores it, and makes it available through an API.  This allows anyone to access current and historical posts, comments, etc.  
-
-Pushshift's API is fairly straightforward. For example, if I want the posts from [`/r/boardgames`](https://www.reddit.com/r/boardgames), all I have to do is use the following url: https://api.pushshift.io/reddit/search/submission?subreddit=boardgames
-
-To help you get started, we have a primer video on how to use the API: https://youtu.be/AcrjEWsMi_E
-
-**NOTE:** Pushshift has recently gone through a major update.  Many of the parameter names have changed.  Current parameters can be viewed [here](https://api.pushshift.io/docs#/default/search_reddit_posts_reddit_search_submission_get).  Also, Pushshift now limits you to 1000 posts per request (no longer the 500 in the screencast).
-
-### About PRAW
-
-PRAW is a Python wrapper for the Reddit API.  The Reddit API has more functionality than PushShift; and therefore, is a little less straightforward.  It requires that you have created a user account on Reddit, and an app with a client ID and secret.  More information on getting started [here](https://praw.readthedocs.io/en/stable/getting_started/quick_start.html).  
-
-One drawback of PRAW is that it only allows collection of up to around 1000 posts from any given subreddit stream:  
-- controversial
-- gilded
-- hot
-- new
-- rising
-- top  
-
-In order to gather enough data for modeling, you will likely need to use a very active subreddit and pull data from multiple streams over several days.
-
----
-
-### Requirements
-
-- Gather and prepare your data using the `requests` library and PushShift API, or PRAW.
-- **Create and compare two models**. Any two classifiers at least of your choosing: random forest, logistic regression, KNN, etc.
-- A Jupyter Notebook with your analysis for a peer audience of data scientists.
-- An executive summary of your results.
-- A short presentation (8 minutes maximum) outlining your process and findings for a semi-technical audience.
-
-**Pro Tip:** You can find a good example executive summary [here](https://www.proposify.biz/blog/executive-summary).
 
 ---
 
@@ -189,13 +172,4 @@ For Project 3 the evaluation categories are as follows:<br>
 - Are visualizations necessary and useful for supporting conclusions/explaining findings?
 
 
----
 
-### Why did we choose this project for you?
-This project covers three of the biggest concepts we cover in the class: Classification Modeling, Natural Language Processing and Data Wrangling/Acquisition.
-
-Part 1 of the project focuses on **Data wrangling/gathering/acquisition**. This is a very important skill as not all the data you will need will be in clean CSVs or a single table in SQL.  There is a good chance that wherever you land you will have to gather some data from some unstructured/semi-structured sources; when possible, requesting information from an API, but sometimes scraping it because they don't have an API (or it's terribly documented).
-
-Part 2 of the project focuses on **Natural Language Processing** and converting standard text data (like Titles and Comments) into a format that allows us to analyze it and use it in modeling.
-
-Part 3 of the project focuses on **Classification Modeling**.  Given that project 2 was a regression focused problem, we needed to give you a classification focused problem to practice the various models, means of assessment and preprocessing associated with classification.   
