@@ -41,7 +41,7 @@ The blockstream devs pushed out the core devs, and social media was a key instru
 
 At this point, all the banned and disgusted users left /r/bitcoin to its ivory tower, and started /r/btc. The bigger trend was the shift to ethereum. As bitcoin would never scale, nor adopt smart contracts or turing complete language, ethereum was now the only option. This is the great irony to the blockstream plan to strangle bitcoin traffic for their second layer - traffic simply went around the blockage onto other chains, primarily ethereum. This was a major moment in the growth of eth, as bitcoin essentially shut down in 2017 and now exists as something like a fixed income asset. 
 
-To this day, ~1.5% of all BTC are held and transacted on the ethereum network, and WBTC is almost 40x larger than lightning (~$4B vs. $100m).
+To this day, 1.5% of all BTC are held and transacted on the ethereum network, and WBTC is almost 40x larger than lightning ($4B vs. $100m).
 
 At this point, most people don't even know the history, as most users adopted after this constitutional crisis, which took place primarily on reddit. Can we spot the different users?
 
